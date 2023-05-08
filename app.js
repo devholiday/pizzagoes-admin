@@ -86,6 +86,14 @@ app.get("/admin/orders", session, async function (req, res, next) {
               alt: img.alt
             }));
 
+            const ingredients = item.ingredients.map(ingr => ({
+              title: ingr.title
+            }));
+
+            const customIngredients = item.customIngredients.map(ingr => ({
+              title: ingr.title
+            }));
+
             return {
               id: item.id,
               title: item.title,
@@ -97,7 +105,9 @@ app.get("/admin/orders", session, async function (req, res, next) {
               unit: item.unit,
               productId: item.productId,
               image: images.length ? images[0] : null,
-              images
+              images,
+              ingredients,
+              customIngredients,
             };
           });
 
@@ -176,6 +186,14 @@ app.post("/admin/api/alert/new_order", async function (req, res, next) {
             alt: img.alt
           }));
 
+          const ingredients = item.ingredients.map(ingr => ({
+            title: ingr.title
+          }));
+
+          const customIngredients = item.customIngredients.map(ingr => ({
+            title: ingr.title
+          }));
+
           return {
             id: item.id,
             title: item.title,
@@ -187,7 +205,9 @@ app.post("/admin/api/alert/new_order", async function (req, res, next) {
             unit: item.unit,
             productId: item.productId,
             image: images.length ? images[0] : null,
-            images
+            images,
+            ingredients,
+            customIngredients,
           };
         });
 

@@ -34,9 +34,31 @@
             <div>{{ forloop.index }}.</div>
             <img src="{{lineItem.image.srcWebp}}" width="70px"/>
             <div>
-              <div>{{ lineItem.title.ru }}</div>
-              <div>{{ lineItem.displayAmount }} {{ lineItem.unit }}</div>
-              <div>&#8362;{{ lineItem.price }} × {{ lineItem.quantity }}</div>
+              <div>
+                <div>{{ lineItem.title.ru }}</div>
+                <div>{{ lineItem.displayAmount }} {{ lineItem.unit }}</div>
+                <div>&#8362;{{ lineItem.price }} × {{ lineItem.quantity }}</div>
+              </div>
+              <div>
+                {% if lineItem.customIngredients.size > 0 %}
+                  <div class="customIngredients">
+                    <div><u>Ингредиенты:</u></div>
+                    {% for ingr in lineItem.customIngredients %}
+                      <span>{{ ingr.title.ru }},</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                {% if lineItem.ingredients.size > 0 %}
+                  <div class="ingredients">
+                    <div><u>Добавить по вкусу:</u></div>
+                    <ul>
+                      {% for ingr in lineItem.ingredients %}
+                        <li><span>+ {{ ingr.title.ru }}</span></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+              </div>
             </div>
           </div>
         {% endfor %}

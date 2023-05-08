@@ -153,3 +153,10 @@ main {
     font-size: 14px;
     margin: 21px 0;
 }
+
+.ingredients {
+    margin-top: 7px;
+}
+.customIngredients {
+    margin-top: 7px;
+}
