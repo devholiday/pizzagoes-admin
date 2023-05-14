@@ -39,6 +39,14 @@
                 <div>{{ lineItem.displayAmount }} {{ lineItem.unit }}</div>
                 <div>&#8362;{{ lineItem.price }} × {{ lineItem.quantity }}</div>
               </div>
+              {% if lineItem.options.size > 1 %}
+                <div class="optionsString">
+                  <div><u>Опции:</u></div>
+                  {% for option in lineItem.options %}
+                    <span>{{ option.value.subTitle.ru }},</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
               <div>
                 {% if lineItem.customIngredients.size > 0 %}
                   <div class="customIngredients">

@@ -160,3 +160,16 @@ main {
 .customIngredients {
     margin-top: 7px;
 }
+
+.optionsString {
+    margin-top: 7px;
+}
+.optionsString span {
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(92, 99, 112);
+    margin: 0px;
+    white-space: pre-wrap;
+    text-transform: lowercase;
+    margin-bottom: 4px;
+}

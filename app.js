@@ -94,6 +94,10 @@ app.get("/admin/orders", session, async function (req, res, next) {
               title: ingr.title
             }));
 
+            const options = item.options.map(option => ({
+              value: option.value
+            }));
+
             return {
               id: item.id,
               title: item.title,
@@ -108,6 +112,7 @@ app.get("/admin/orders", session, async function (req, res, next) {
               images,
               ingredients,
               customIngredients,
+              options
             };
           });
 
@@ -194,6 +199,10 @@ app.post("/admin/api/alert/new_order", async function (req, res, next) {
             title: ingr.title
           }));
 
+          const options = item.options.map(option => ({
+            value: option.value
+          }));
+
           return {
             id: item.id,
             title: item.title,
@@ -208,6 +217,7 @@ app.post("/admin/api/alert/new_order", async function (req, res, next) {
             images,
             ingredients,
             customIngredients,
+            options
           };
         });
 
